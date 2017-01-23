@@ -4,7 +4,6 @@ function BankStatement(){
   this.allBalances = []
   this.allDeposits = []
   this.allWithdrawals = []
-  this.transaction = []
 };
 
 BankStatement.prototype.deposit = function(amount) {
