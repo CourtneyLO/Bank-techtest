@@ -18,6 +18,10 @@ describe("BankSatement", function(){
     expect(bankStatement.allBalances).toEqual([])
   });
 
+  it("should initialize with all no deposits made", function(){
+    expect(bankStatement.allDeposits).toEqual([])
+  });
+
   it("should increase balance when money in desposited", function(){
     bankStatement.deposit(1000);
     expect(bankStatement.balance).toEqual(1000);
@@ -42,5 +46,10 @@ describe("BankSatement", function(){
     bankStatement.withdraw(500);
     expect(bankStatement.allBalances).toEqual([1000, 3000, 2500])
   });
+
+  it("should return 1000 in the desposit array", function(){
+    bankStatement.deposit(1000);
+    expect(bankStatement.allDeposits).toEqual([1000])
+  })
 
 });
