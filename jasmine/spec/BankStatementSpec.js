@@ -70,14 +70,13 @@ describe("BankSatement", function(){
 
   it("should return '-' when bank account is used but a deposit is not made", function(){
     bankStatement.withdraw(500);
-
     expect(bankStatement.allDeposits).toEqual(["-"]);
   });
 
-  // it("should console.log date, deposit, withdrawal and balance", function(){
-  //   // console.log = jasmine.createSpy('log')
-  //   bankStatement.receipt()
-  //   // expect(console.log).toHaveBeenCalledWith("date | deposit | withdrawal | balance")
-  // });
+  it("should console.log date, deposit, withdrawal and balance", function(){
+    console.log = jasmine.createSpy('log')
+    bankStatement.receipt()
+    expect(console.log).toHaveBeenCalledWith(" Date          |Withdrawal|Deposits|Balances")
+  });
 
 });
