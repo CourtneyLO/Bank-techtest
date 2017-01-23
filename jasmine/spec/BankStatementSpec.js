@@ -11,7 +11,7 @@ describe("BankSatement", function(){
   });
 
   it("should initialize with todays date", function(){
-    expect(bankStatement.date).toEqual(new Date());
+    expect(bankStatement.date).toEqual([new Date()]);
   });
 
   it("should increase balance when money in desposited", function(){
