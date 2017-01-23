@@ -10,4 +10,8 @@ describe("BankSatement", function(){
     expect(bankStatement.balance).toEqual(0);
   });
 
+  it("should initialize with todays date", function(){
+    expect(bankStatement.date).toEqual(new Date());
+  });
+
 });
