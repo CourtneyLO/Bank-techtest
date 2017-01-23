@@ -1,9 +1,10 @@
 function BankStatement(){
-  this.date = [new Date()]
+  this.date = [new Date().toDateString()]
   this.balance = 0
   this.allBalances = []
   this.allDeposits = []
   this.allWithdrawals = []
+  this.transaction = []
 };
 
 BankStatement.prototype.deposit = function(amount) {
@@ -29,5 +30,12 @@ BankStatement.prototype.deposit = function(amount) {
  };
 
  BankStatement.prototype.receipt = function(){
-   console.log("date | deposit | withdrawal | balance" )
+   console.log(("  " + "Date").slice(-5) + "          " + "|" + "Withdrawal"+ "|" + "Deposits" + "|" + "Balances")
+   for(i = 0; i < this.allBalances.length; i ++ ){
+     console.log(this.date[0]+ "|" + ("         " + this.allWithdrawals[i]).slice(-10) + "|" + ("       " + this.allDeposits[i]).slice(-8) + "|" + this.allBalances[i])
+   }
+ }
+
+ BankStatement.prototype.transaction = function(){
+   console.log()
  }

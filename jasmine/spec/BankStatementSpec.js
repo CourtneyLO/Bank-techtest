@@ -11,7 +11,7 @@ describe("BankSatement", function(){
   });
 
   it("should initialize with todays date", function(){
-    expect(bankStatement.date).toEqual([new Date()]);
+    expect(bankStatement.date).toEqual([new Date().toDateString()]);
   });
 
   it("should initialize with an empty allBalance array", function(){
@@ -48,6 +48,7 @@ describe("BankSatement", function(){
     bankStatement.deposit(1000);
     bankStatement.deposit(2000);
     bankStatement.withdraw(500);
+      bankStatement.receipt()
     expect(bankStatement.allBalances).toEqual([1000, 3000, 2500]);
   });
 
@@ -69,13 +70,14 @@ describe("BankSatement", function(){
 
   it("should return '-' when bank account is used but a deposit is not made", function(){
     bankStatement.withdraw(500);
+
     expect(bankStatement.allDeposits).toEqual(["-"]);
   });
 
-  it("should console.log date, deposit, withdrawal and balance", function(){
-    console.log = jasmine.createSpy('log')
-    bankStatement.receipt()
-    expect(console.log).toHaveBeenCalledWith("date | deposit | withdrawal | balance")
-  });
+  // it("should console.log date, deposit, withdrawal and balance", function(){
+  //   // console.log = jasmine.createSpy('log')
+  //   bankStatement.receipt()
+  //   // expect(console.log).toHaveBeenCalledWith("date | deposit | withdrawal | balance")
+  // });
 
 });
