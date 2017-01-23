@@ -15,7 +15,6 @@ BankStatement.prototype.deposit = function(amount) {
  } else {
    this.allDeposits.push(amount)
  }
-
  };
 
  BankStatement.prototype.withdraw = function(amount) {
@@ -27,6 +26,8 @@ BankStatement.prototype.deposit = function(amount) {
    } else {
      this.allWithdrawals.push(amount)
    }
-
-
  };
+
+ BankStatement.prototype.receipt = function(){
+   console.log("date | deposit | withdrawal | balance" )
+ }
