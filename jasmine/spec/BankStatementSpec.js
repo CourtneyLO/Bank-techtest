@@ -15,8 +15,21 @@ describe("BankSatement", function(){
   });
 
   it("should increase balance when money in desposited", function(){
-  bankStatement.deposit(1000);
-  expect(bankStatement.balance).toEqual(1000);
+    bankStatement.deposit(1000);
+    expect(bankStatement.balance).toEqual(1000);
+  });
+
+  it("should decrease balance when money in withdrawn", function(){
+    bankStatement.deposit(1000);
+    bankStatement.withdraw(500);
+    expect(bankStatement.balance).toEqual(500);
+  });
+
+  it("should return a balance of 2500", function(){
+    bankStatement.deposit(1000);
+    bankStatement.deposit(2000);
+    bankStatement.withdraw(500);
+    expect(bankStatement.balance).toEqual(2500);
   });
 
 });
