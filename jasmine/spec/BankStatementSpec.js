@@ -11,7 +11,7 @@ describe("BankSatement", function(){
   });
 
   it("should initialize with todays date", function(){
-    expect(bankStatement.date).toEqual([new Date().toDateString()]);
+    expect(bankStatement.date).toEqual(new Date().toDateString());
   });
 
   it("should initialize with an empty allBalance array", function(){
@@ -48,7 +48,6 @@ describe("BankSatement", function(){
     bankStatement.deposit(1000);
     bankStatement.deposit(2000);
     bankStatement.withdraw(500);
-      bankStatement.receipt()
     expect(bankStatement.allBalances).toEqual([1000, 3000, 2500]);
   });
 
@@ -73,10 +72,17 @@ describe("BankSatement", function(){
     expect(bankStatement.allDeposits).toEqual(["-"]);
   });
 
-  it("should console.log date, deposit, withdrawal and balance", function(){
-    console.log = jasmine.createSpy('log')
-    bankStatement.receipt()
-    expect(console.log).toHaveBeenCalledWith(" Date          |Withdrawal|Deposits|Balances")
-  });
+  it("should return an array of rows of transaction", function(){
+    bankStatement.deposit(1000);
+    bankStatement.transactions();
+    expect(bankStatement.allTransactions).toEqual([ '  ' + new Date().toDateString() + '|      1000|       -|1000' ])
+  })
+
+  it("should return the receipt of all transactions", function(){
+    bankStatement.deposit(1000);
+    bankStatement.transactions();
+    expect(bankStatement.receipt()).toEqual(' Date           |Withdrawal|Deposits|Balances' + '\n' +
+                                            "  " + new Date().toDateString()+ '|      1000|       -|1000')
+  })
 
 });
