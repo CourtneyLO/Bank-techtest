@@ -30,7 +30,7 @@ BankStatement.prototype.deposit = function(amount) {
  };
 
  BankStatement.prototype.transactions = function(){
-   this.headings = ("  " + "Date").slice(-5) + "           " + "|" + "Withdrawal"+ "|" + "Deposits" + "|" + "Balances"
+   this.headings = ("  " + "Date").slice(-7) + "           " + "|" + "Withdrawal"+ "|" + "Deposits" + "|" + "Balances"
   for(i = 0; i < this.allBalances.length; i ++ ){
     this.allTransactions.push("  "+ this.date  + "|" + ("         " + this.allDeposits[i]).slice(-10) + "|" + ("       " + this.allWithdrawals[i]).slice(-8) + "|" + this.allBalances[i])
   }
@@ -40,5 +40,6 @@ BankStatement.prototype.receipt = function() {
   this.transaction = this.allTransactions.map(function(x){
     return '\n' + x
   })
-  return this.headings + this.transaction
+  console.log(this.headings + this.transaction)
+  return(this.headings + this.transaction)
 }

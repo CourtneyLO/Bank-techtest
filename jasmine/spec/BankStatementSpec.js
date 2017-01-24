@@ -78,10 +78,19 @@ describe("BankSatement", function(){
     expect(bankStatement.allTransactions).toEqual([ '  ' + new Date().toDateString() + '|      1000|       -|1000' ])
   })
 
+  // it("should console.log the receipt of all transactions", function(){
+  //   bankStatement.deposit(1000);
+  //   console.log = jasmine.createSpy('log')
+  //   bankStatement.transactions();
+  //   bankStatement.receipt()
+  //   expect(console.log).toHaveBeenCalledWith('  Date           |Withdrawal|Deposits|Balances' + '\n' +                                            "  " + new Date().toDateString()+ '|      1000|       -|1000')
+  // })
+
+
   it("should return the receipt of all transactions", function(){
     bankStatement.deposit(1000);
     bankStatement.transactions();
-    expect(bankStatement.receipt()).toEqual(' Date           |Withdrawal|Deposits|Balances' + '\n' +
+    expect(bankStatement.receipt()).toEqual('  Date           |Withdrawal|Deposits|Balances' + '\n' +
                                             "  " + new Date().toDateString()+ '|      1000|       -|1000')
   })
 
